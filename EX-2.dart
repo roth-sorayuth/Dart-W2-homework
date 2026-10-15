@@ -36,10 +36,10 @@ class Bank {
 
     final String _bankId;
 
-    final List<BankAccount> _bankAccounts;
+    final List<BankAccount> _bankAccounts = [];
 
 
-    Bank({required this.bankName, required this._bankId, required this._bankAccounts});
+    Bank({required this.bankName, required this._bankId});
 
     String get bankID => _bankId;
 
@@ -57,9 +57,8 @@ class Bank {
  
 void main() {
 
-  List<BankAccount> allAccounts = [];
 
-  Bank myBank = Bank(bankName:"CADT Bank", bankId: "ABA1", bankAccounts: allAccounts);
+  Bank myBank = Bank(bankName:"CADT Bank", bankId: "ABA1");
   BankAccount ronanAccount = myBank.createAccount(accountId: 100, accountOwner: "Ronamn");
 
   print(ronanAccount.balance); // Balance: $0
@@ -79,4 +78,5 @@ void main() {
   } catch (e) {
     print(e); // Output: Account with ID 100 already exists!
   }
+
 }
